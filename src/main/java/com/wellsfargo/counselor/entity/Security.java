@@ -38,7 +38,6 @@ public class Security {
     private LocalDateTime updatedAt;
 
     protected Security() {
-        // Default constructor for JPA
     }
 
     public Security(Long portfolioId, String name, String category, LocalDate purchaseDate,
@@ -53,8 +52,6 @@ public class Security {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
-    // Getters and Setters
 
     public Long getSecurityId() {
         return securityId;
