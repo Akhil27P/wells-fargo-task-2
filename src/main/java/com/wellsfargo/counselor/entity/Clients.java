@@ -3,47 +3,49 @@ package com.wellsfargo.counselor.entity;
 import jakarta.persistence.*;
 
 @Entity
-public class Client {
+public class Clients {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "Client_ID")
     private Long clientId;
 
-    @Column(nullable = false)
+    @Column(name = "Advisor_ID", nullable = false)
     private Long advisorId;
 
-    @Column(nullable = false)
+    @Column(name = "First_Name", nullable = false)
     private String firstName;
 
-    @Column(nullable = false)
+    @Column(name = "Last_Name", nullable = false)
     private String lastName;
 
-    @Column(nullable = false)
+    @Column(name = "Email_Verified", nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "Phone_Number", nullable = false)
     private String phone;
 
-    @Column(nullable = false)
+    @Column(name = "Created_at", nullable = false)
     private String createdAt;
 
-    @Column(nullable = false)
+    @Column(name = "Updated_at", nullable = false)
     private String updatedAt;
 
-    protected Client() {
+    protected Clients() {
         // Default constructor for JPA
     }
 
-    // Constructor with parameter names as you specified
-    public Client(long Advisor_Id, String First_Name, String Last_name, String Email_verified, String Phone_Number, String Created_at, String Updated_at) {
+    public Clients(long Advisor_Id, String First_Name, String Last_Name, String Email_Verified, String Phone_Number, String Created_at, String Updated_at) {
         this.advisorId = Advisor_Id;
         this.firstName = First_Name;
-        this.lastName = Last_name;
-        this.email = Email_verified;
+        this.lastName = Last_Name;
+        this.email = Email_Verified;
         this.phone = Phone_Number;
         this.createdAt = Created_at;
         this.updatedAt = Updated_at;
     }
+
+    // getters and setters below...
 
     public Long getClientId() {
         return clientId;
