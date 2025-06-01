@@ -1,51 +1,51 @@
 package com.wellsfargo.counselor.entity;
 
 import jakarta.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
-public class Clients {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Client_ID")
+    @Column(name = "client_id")
     private Long clientId;
 
-    @Column(name = "Advisor_ID", nullable = false)
+    @Column(name = "advisor_id", nullable = false)
     private Long advisorId;
 
-    @Column(name = "First_Name", nullable = false)
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "Last_Name", nullable = false)
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "Email_Verified", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "Phone_Number", nullable = false)
+    @Column(name = "phone_number", nullable = false)
     private String phone;
 
-    @Column(name = "Created_at", nullable = false)
-    private String createdAt;
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
 
-    @Column(name = "Updated_at", nullable = false)
-    private String updatedAt;
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
-    protected Clients() {
-        // Default constructor for JPA
+    protected Client() {
     }
 
-    public Clients(long Advisor_Id, String First_Name, String Last_Name, String Email_Verified, String Phone_Number, String Created_at, String Updated_at) {
-        this.advisorId = Advisor_Id;
-        this.firstName = First_Name;
-        this.lastName = Last_Name;
-        this.email = Email_Verified;
-        this.phone = Phone_Number;
-        this.createdAt = Created_at;
-        this.updatedAt = Updated_at;
+    public Client(Long advisorId, String firstName, String lastName, String email, String phone, LocalDateTime createdAt, LocalDateTime updatedAt) {
+        this.advisorId = advisorId;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.phone = phone;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
     }
 
-    // getters and setters below...
+
 
     public Long getClientId() {
         return clientId;
@@ -91,19 +91,19 @@ public class Clients {
         this.phone = phone;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }
