@@ -1,35 +1,36 @@
 package com.wellsfargo.counselor.entity;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
 @Entity
 public class Portfolio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Portfolio_ID")
+    @Column(name = "portfolio_id")
     private Long portfolioId;
 
-    @Column(name = "Client_ID", nullable = false)
+    @Column(name = "client_id", nullable = false)
     private Long clientId;
 
-    @Column(name = "Type", nullable = false)
+    @Column(name = "type", nullable = false)
     private String type;
 
-    @Column(name = "Total_Value", nullable = false)
-    private String totalValue;
+    @Column(name = "total_value", nullable = false)
+    private BigDecimal totalValue;
 
-    @Column(name = "Created_at", nullable = false)
-    private String createdAt;
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createdAt;
 
-    @Column(name = "Updated_at", nullable = false)
-    private String updatedAt;
+    @Column(name = "updated_at", nullable = false)
+    private LocalDateTime updatedAt;
 
     protected Portfolio() {
-        // Default constructor for JPA
     }
 
-    public Portfolio(Long clientId, String type, String totalValue, String createdAt, String updatedAt) {
+    public Portfolio(Long clientId, String type, BigDecimal totalValue, LocalDateTime createdAt, LocalDateTime updatedAt) {
         this.clientId = clientId;
         this.type = type;
         this.totalValue = totalValue;
@@ -57,27 +58,27 @@ public class Portfolio {
         this.type = type;
     }
 
-    public String getTotalValue() {
+    public BigDecimal getTotalValue() {
         return totalValue;
     }
 
-    public void setTotalValue(String totalValue) {
+    public void setTotalValue(BigDecimal totalValue) {
         this.totalValue = totalValue;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
-    public String getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(String updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 }
